@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 96%;
+    --foreground: 30 20% 15%;
+
+    --card: 40 25% 93%;
+    --card-foreground: 30 20% 15%;
+
+    --popover: 40 30% 96%;
+    --popover-foreground: 30 20% 15%;
+
+    --primary: 145 40% 32%;
+    --primary-foreground: 40 30% 96%;
+
+    --secondary: 33 30% 82%;
+    --secondary-foreground: 30 20% 15%;
+
+    --muted: 40 20% 90%;
+    --muted-foreground: 30 10% 45%;
+
+    --accent: 30 50% 45%;
+    --accent-foreground: 40 30% 96%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 33 20% 82%;
+    --input: 33 20% 82%;
+    --ring: 145 40% 32%;
+
+    --radius: 0.75rem;
+
+    --herb-green: 145 50% 28%;
+    --herb-green-light: 145 35% 65%;
+    --herb-brown: 30 35% 30%;
+    --herb-beige: 40 35% 90%;
+    --herb-gold: 42 65% 55%;
+    --herb-sage: 140 15% 55%;
+    --herb-cream: 40 40% 95%;
+    --herb-terracotta: 15 45% 50%;
+
+    --glass-bg: 40 30% 96% / 0.7;
+    --glass-border: 40 30% 96% / 0.3;
+
+    --gradient-hero: linear-gradient(135deg, hsl(145 40% 32%), hsl(140 30% 45%), hsl(42 65% 55%));
+    --gradient-card: linear-gradient(145deg, hsl(40 25% 93% / 0.8), hsl(40 35% 90% / 0.4));
+    --gradient-accent: linear-gradient(135deg, hsl(30 50% 45%), hsl(42 65% 55%));
+
+    --shadow-soft: 0 4px 20px hsl(30 20% 15% / 0.08);
+    --shadow-card: 0 8px 32px hsl(30 20% 15% / 0.1);
+    --shadow-elevated: 0 16px 48px hsl(30 20% 15% / 0.15);
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+    --font-ui: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-xl border;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .herb-particle {
+    @apply absolute rounded-full opacity-30;
+    background: hsl(var(--herb-green-light));
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full px-5 py-3 font-semibold shadow-lg transition-all duration-300 hover:scale-105;
+    background: #25D366;
+    color: white;
+    font-family: var(--font-ui);
+    box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .font-ui {
+    font-family: var(--font-ui);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-15px) translateX(10px); }
+  66% { transform: translateY(5px) translateX(-8px); }
+}
+
+@keyframes particle-drift {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(-100vh) translateX(50px) scale(0); opacity: 0; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
