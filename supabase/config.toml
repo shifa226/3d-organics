@@ -1,0 +1,4 @@
+project_id = "vnneunkomgjdydjpxees"
+
+[functions.herbal-advisor]
+verify_jwt = false

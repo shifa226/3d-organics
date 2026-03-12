@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
       className="whatsapp-float"
     >
       <MessageCircle className="h-5 w-5" />
-      <span className="hidden sm:inline">Chat with us</span>
+      <span className="hidden sm:inline font-ui text-sm">Chat with us</span>
     </a>
   );
 }

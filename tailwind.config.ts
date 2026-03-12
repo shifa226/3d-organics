@@ -15,8 +15,8 @@ export default {
     extend: {
       fontFamily: {
         display: ["Playfair Display", "serif"],
-        body: ["Lora", "serif"],
-        ui: ["Inter", "sans-serif"],
+        body: ["Cormorant Garamond", "serif"],
+        ui: ["Space Grotesk", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,6 +61,7 @@ export default {
           sage: "hsl(var(--herb-sage))",
           cream: "hsl(var(--herb-cream))",
           terracotta: "hsl(var(--herb-terracotta))",
+          glow: "hsl(var(--herb-glow))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -99,6 +100,10 @@ export default {
           "0%": { transform: "rotateY(0deg)" },
           "100%": { transform: "rotateY(360deg)" },
         },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -106,6 +111,7 @@ export default {
         "fade-in": "fade-in 0.6s ease-out forwards",
         "float": "float 3s ease-in-out infinite",
         "spin-slow": "spin-slow 8s linear infinite",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
       },
     },
   },
